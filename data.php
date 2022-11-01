@@ -116,6 +116,10 @@
                             <!-- Info Boxes Style 2 -->
                             <h1>view data screen here</h1>
 
+
+                            
+                            
+
                         </div>
                         <!-- /.col -->
                     </div>

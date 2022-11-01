@@ -26,8 +26,36 @@
             <h1><i class="fas fa-spinner fa-spin text-primary"></i></h1> 
             <h4>Loading</h4>
         </div>
-        <div class="row flex-column justify-content-center align-items-center" style="height:90vh;">
-            <h1>Login screen here</h1>
+        <div class="row flex-column justify-content-center align-items-start bg-image"
+         style="height:100vh;background-image:url('assets/images/bg.jpg');
+            background-size:cover;
+            background-position:fixed;">
+            <div class="col-md-6 col-sm-12 col-lg-5 bg-light rounded mx-5 px-5 py-5">
+                <h2>Get's Started.</h2>
+                <form class="form-group">
+                    <div class="input-container row">
+                        <label for="" class="label col-12">
+                            Email Address
+                        </label>
+                        <input type="email" name="email" placeholder="example@domail.com" class="form-control col-md-10 col-sm-12 col-lg-10">
+                    </div>
+                    <div class="input-container row">
+                        <label for="" class="label col-12">
+                            Password
+                        </label>
+                        <input type="password" name="password" placeholder="Password" class="form-control col-md-10 col-sm-12 col-lg-10">
+                    </div>
+                    <div class="input-container row d-flex justify-content-between py-4">
+                        <div><button type="submit" class="btn btn-success px-5">
+                            <i class="fa fa-user"></i> Sign In
+                        </button></div>
+                        <div class="mr-4">
+                            <a href="createAccount.php" class="text-lg"> Create new Account</a>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
         </div>
 
 
