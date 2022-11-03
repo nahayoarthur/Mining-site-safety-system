@@ -30,24 +30,21 @@
          style="height:99vh;background-image:url('assets/images/bg.jpg');
             background-size:cover;
             background-position:fixed;">
-            <div class="col-md-6 col-sm-12 col-lg-5 bg-light rounded mx-5 px-5 py-5">
+            <div class="col-md-6 col-sm-12 col-lg-5 bg-light rounded px-5 py-5">
                 <h2>Create Account.</h2>
-                <form class="form-group">
+                <form class="form-group" action="" method="post">
+                    
                     <div class="input-container row">
-                        <div class="col-md-6 col-lg-6 col-sm-12">
-                            <label for="" class="label">First Name</label>
-                            <input type="text" name="fname" placeholder="First Name" class="form-control">
-                        </div>
-                        <div class="col-md-6 col-lg-6 col-sm-12">
-                            <label for="" class="label">Last Name</label>
-                            <input type="text" name="lname" placeholder="Last Name" class="form-control">
-                        </div>
+                        <label for="" class="label col-12">
+                            Username
+                        </label>
+                        <input type="text" name="username" placeholder="Username" class="form-control">
                     </div>
                     <div class="input-container row">
                         <label for="" class="label col-12">
-                            Email Address
+                            Phone
                         </label>
-                        <input type="email" name="email" placeholder="example@domail.com" class="form-control">
+                        <input type="text" name="phone" placeholder="Phone" class="form-control">
                     </div>
                     <div class="input-container row">
                         <label for="" class="label col-12">
@@ -57,7 +54,7 @@
                     </div>
                     <div class="input-container row d-flex justify-content-between py-4">
                         <div><button type="submit" class="btn btn-success px-5">
-                            <i class="fa fa-user"></i> Sign In
+                             Sign Up
                         </button></div>
                         <div class="mr-4">
                             Already have Account click<a href="login.php" class="text-lg"> here</a> to Sigin In

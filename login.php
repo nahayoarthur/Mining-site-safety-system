@@ -32,12 +32,12 @@
             background-position:fixed;">
             <div class="col-md-6 col-sm-12 col-lg-5 bg-light rounded mx-5 px-5 py-5">
                 <h2>Get's Started.</h2>
-                <form class="form-group">
+                <form class="form-group"  action="" method="post">
                     <div class="input-container row">
                         <label for="" class="label col-12">
-                            Email Address
+                            Username or Phone
                         </label>
-                        <input type="email" name="email" placeholder="example@domail.com" class="form-control col-md-10 col-sm-12 col-lg-10">
+                        <input type="text" name="username" placeholder="Username or Phone" class="form-control col-md-10 col-sm-12 col-lg-10">
                     </div>
                     <div class="input-container row">
                         <label for="" class="label col-12">
