@@ -50,16 +50,13 @@
                             <i class="fa fa-user"></i> Sign In
                         </button></div>
                         <div class="mr-4">
-                            <a href="createAccount.php" class="text-lg"> Create new Account</a>
+                            <!-- <a href="createAccount.php" class="text-lg"> Create new Account</a> -->
                         </div>
                     </div>
                 </form>
                 
             </div>
         </div>
-
-
-
 
         <!-- Main Footer -->
 

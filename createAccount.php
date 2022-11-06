@@ -30,9 +30,9 @@
          style="height:99vh;background-image:url('assets/images/bg.jpg');
             background-size:cover;
             background-position:fixed;">
-            <div class="col-md-6 col-sm-12 col-lg-5 bg-light rounded px-5 py-5">
+            <div class="col-md-6 col-sm-12 col-lg-5 bg-light rounded px-5 mx-5 py-5">
                 <h2>Create Account.</h2>
-                <form class="form-group" action="" method="post">
+                <form class="form-group" action="auth/createAccount.php" method="post">
                     
                     <div class="input-container row">
                         <label for="" class="label col-12">
