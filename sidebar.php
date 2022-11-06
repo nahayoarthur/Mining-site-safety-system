@@ -33,7 +33,7 @@
                     <li class="nav-item">
                         <a href="./data.php" class="nav-link">
                             <i class="fa fa-check-square nav-icon"></i>
-                            <p>View Data</p>
+                            <p>Zone 1</p>
                         </a>
                     </li>
                 </ul>

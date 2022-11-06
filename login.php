@@ -49,9 +49,6 @@
                         <div><button type="submit" class="btn btn-success px-5">
                             <i class="fa fa-user"></i> Sign In
                         </button></div>
-                        <div class="mr-4">
-                            <!-- <a href="createAccount.php" class="text-lg"> Create new Account</a> -->
-                        </div>
                     </div>
                 </form>
                 
