@@ -1,4 +1,10 @@
-<?php #require_once "session.php" ?>
+<?php 
+
+session_start();
+if(!isset($_SESSION['uname'])){
+    header("location:login.php");
+}else{
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -190,3 +196,4 @@
 </body>
 
 </html>
+<?php } ?>

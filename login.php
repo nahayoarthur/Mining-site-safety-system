@@ -32,18 +32,18 @@
             background-position:fixed;">
             <div class="col-md-6 col-sm-12 col-lg-5 bg-light rounded mx-5 px-5 py-5">
                 <h2>Get's Started.</h2>
-                <form class="form-group"  action="" method="post">
+                <form class="form-group"  action="actions/loginOp.php" method="post">
                     <div class="input-container row">
                         <label for="" class="label col-12">
-                            Username or Phone
+                            Username
                         </label>
-                        <input type="text" name="username" placeholder="Username or Phone" class="form-control col-md-10 col-sm-12 col-lg-10">
+                        <input type="text" name="username" placeholder="Username" class="form-control col-md-10 col-sm-12 col-lg-10" required>
                     </div>
                     <div class="input-container row">
                         <label for="" class="label col-12">
                             Password
                         </label>
-                        <input type="password" name="password" placeholder="Password" class="form-control col-md-10 col-sm-12 col-lg-10">
+                        <input type="password" name="password" placeholder="Password" class="form-control col-md-10 col-sm-12 col-lg-10" required>
                     </div>
                     <div class="input-container row d-flex justify-content-between py-4">
                         <div><button type="submit" class="btn btn-success px-5">
