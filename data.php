@@ -3,7 +3,7 @@
 require_once "./actions/db.php";
 $sql = "select *from site-1";
 $res = mysqli_query($con,$sql);
-$data = mysqli_fetch_array($res);
+// $data = mysqli_fetch_array($res);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,8 +101,8 @@ $data = mysqli_fetch_array($res);
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item"><a href="./index.php">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Data</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -120,11 +120,60 @@ $data = mysqli_fetch_array($res);
 
                         <div class="col-md-12 d-flex justify-content-center">
                             <!-- Info Boxes Style 2 -->
-                            <h1>view data screen here</h1>
-
-                            <?php 
-                                print_r($data);
-                            ?>
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Ipg</th>
+                                        <th>Smoke</th>
+                                        <th>Alcohol</th>
+                                        <th>Propane</th>
+                                        <th>Hydrogen</th>
+                                        <th>Methane</th>
+                                        <th>Carbon</th>
+                                        <th>Temp</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>54</td>
+                                        <td>23.5</td>
+                                        <td>433</td>
+                                        <td>234</td>
+                                        <td>453</td>
+                                        <td>453</td>
+                                        <td>345</td>
+                                        <td>564</td>
+                                        <td>2022-11-09 02:19:11</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>54</td>
+                                        <td>23.5</td>
+                                        <td>433</td>
+                                        <td>234</td>
+                                        <td>453</td>
+                                        <td>453</td>
+                                        <td>345</td>
+                                        <td>564</td>
+                                        <td>2022-11-09 02:19:11</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>54</td>
+                                        <td>23.5</td>
+                                        <td>433</td>
+                                        <td>234</td>
+                                        <td>453</td>
+                                        <td>453</td>
+                                        <td>345</td>
+                                        <td>564</td>
+                                        <td>2022-11-09 02:19:11</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             
                             
 
