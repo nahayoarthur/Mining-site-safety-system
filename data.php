@@ -1,4 +1,10 @@
-<?php //require_once "session.php" ?>
+<?php 
+//require_once "session.php";
+require_once "./actions/db.php";
+$sql = "select *from site-1";
+$res = mysqli_query($con,$sql);
+$data = mysqli_fetch_array($res);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,7 +122,9 @@
                             <!-- Info Boxes Style 2 -->
                             <h1>view data screen here</h1>
 
-
+                            <?php 
+                                print_r($data);
+                            ?>
                             
                             
 
