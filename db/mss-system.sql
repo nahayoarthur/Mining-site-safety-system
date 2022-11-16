@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2022 at 10:17 AM
+-- Generation Time: Nov 16, 2022 at 05:26 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -41,6 +41,13 @@ CREATE TABLE `site-1` (
   `time` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `site-1`
+--
+
+INSERT INTO `site-1` (`id`, `lpg`, `smoke`, `alcohol`, `propane`, `hydrogen`, `methane`, `carbon`, `temp`, `time`) VALUES
+(1, 1, 2, 0, 3, 3, 1, 9, 32, '2022-11-16 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -53,6 +60,13 @@ CREATE TABLE `users` (
   `password` varchar(50) NOT NULL,
   `phone` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `password`, `phone`) VALUES
+(1, 'Admin', 'Admin@123', '0786983762');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +82,8 @@ ALTER TABLE `site-1`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -78,13 +93,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `site-1`
 --
 ALTER TABLE `site-1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,11 +1,16 @@
+
 <?php 
-//require_once "session.php";
+session_start();
+if(!isset($_SESSION['uname'])){
+    header("location:login.php");
+}else{
 require_once "./actions/db.php";
-$sql = "select *from site-1";
+$sql = "SELECT * FROM `site-1`";
 $res = mysqli_query($con,$sql);
-// $data = mysqli_fetch_array($res);
+
  ?>
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -136,42 +141,22 @@ $res = mysqli_query($con,$sql);
                                     </tr>
                                 </thead>
                                 <tbody>
+
+                            <?php while ($data = mysqli_fetch_array($res)){ ?>
+
                                     <tr>
-                                        <td>1</td>
-                                        <td>54</td>
-                                        <td>23.5</td>
-                                        <td>433</td>
-                                        <td>234</td>
-                                        <td>453</td>
-                                        <td>453</td>
-                                        <td>345</td>
-                                        <td>564</td>
-                                        <td>2022-11-09 02:19:11</td>
+                                        <td><?= $data['lpg'] ?></td>
+                                        <td><?= $data['smoke'] ?></td>
+                                        <td><?= $data['alcohol'] ?></td>
+                                        <td><?= $data['propane'] ?></td>
+                                        <td><?= $data['hydrogen'] ?></td>
+                                        <td><?= $data['methane'] ?></td>
+                                        <td><?= $data['carbon'] ?></td>
+                                        <td><?= $data['temp'] ?></td>
+                                        <td><?= $data['time'] ?></td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>54</td>
-                                        <td>23.5</td>
-                                        <td>433</td>
-                                        <td>234</td>
-                                        <td>453</td>
-                                        <td>453</td>
-                                        <td>345</td>
-                                        <td>564</td>
-                                        <td>2022-11-09 02:19:11</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>54</td>
-                                        <td>23.5</td>
-                                        <td>433</td>
-                                        <td>234</td>
-                                        <td>453</td>
-                                        <td>453</td>
-                                        <td>345</td>
-                                        <td>564</td>
-                                        <td>2022-11-09 02:19:11</td>
-                                    </tr>
+                             <?php } ?>  
+                                    
                                 </tbody>
                             </table>
                             
@@ -222,3 +207,5 @@ $res = mysqli_query($con,$sql);
 </body>
 
 </html>
+
+<?php } ?>
