@@ -1,4 +1,16 @@
-<?php //require_once "session.php" ?>
+<?php 
+
+session_start();
+if(!isset($_SESSION['uname'])){
+    header("location:login.php");
+}else{
+    require_once "./actions/db.php";
+$sql = "SELECT * FROM `site-1`";
+$sqlCount = "SELECT count(id) FROM `site-1` WHERE status = 1";
+$resCount = mysqli_query($con,$sqlCount);
+$res = mysqli_query($con,$sql);
+$newData = mysqli_fetch_array($resCount);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,31 +52,20 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <a class="nav-link" href="data.php" role="button">
                         <i class="fas fa-bell"></i>
+                        <?php if($newData[0]>0){
+                        ?>
+                       
+                            <sup class="badge bg-success rounded-pill position-absolute top-2 start-100 ">
+                                <?php print $newData[0] ?>
+                            </sup>
+                        <?php    
+                            }
+                        ?>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
+                
 
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -110,11 +111,63 @@
                     <!-- Info boxes -->
 
                     <!-- Main row -->
+                    <?php
+                        if(isset($_SESSION['success'])){
+                    ?>
+                    <div class="alert alert-success text-warning text-center text-bold text-lg">
+                        <?php print $_SESSION['success']; ?>
+                    </div>
+                    <?php 
+                        unset($_SESSION['success']);
+                        }
+                    ?>
+                    <?php
+                        if(isset($_SESSION['error'])){
+                    ?>
+                    <div class="alert alert-warning text-danger text-center text-bold text-lg">
+                        <?php print $_SESSION['error']; ?>
+                    </div>
+                    <?php 
+                        unset($_SESSION['error']);
+                        }
+                    ?>
                     <div class="row">
 
                         <div class="col-md-12 d-flex justify-content-center">
                             <!-- Info Boxes Style 2 -->
-                            <h1>Profile screen here</h1>
+                            <div class=" flex-column justify-content-center align-items-start py-0 my-0">
+            <div class="bg-light rounded px-5 mx-5 py-5">
+                <h2>Create Account.</h2>
+                <form class="form-group" action="auth/createAccount.php" method="post">
+                    
+                    <div class="input-container row">
+                        <label for="" class="label col-12">
+                            Username
+                        </label>
+                        <input type="text" name="username" placeholder="Username" class="form-control">
+                    </div>
+                    <div class="input-container row">
+                        <label for="" class="label col-12">
+                            Phone
+                        </label>
+                        <input type="text" name="phone" placeholder="Phone" class="form-control">
+                    </div>
+                    <div class="input-container row">
+                        <label for="" class="label col-12">
+                            Password
+                        </label>
+                        <input type="password" name="password" placeholder="Password" class="form-control">
+                    </div>
+                    <div class="input-container row d-flex justify-content-between py-4">
+                        <div><button type="submit" class="btn btn-success px-5">
+                            <i class="fas fa-save"></i> Save
+                        </button></div>
+                         
+                    </div>
+                </form>
+                
+            </div>
+        </div>
 
                         </div>
                         <!-- /.col -->
@@ -161,3 +214,4 @@
 </body>
 
 </html>
+<?php } ?>

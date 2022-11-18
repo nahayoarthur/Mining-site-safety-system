@@ -33,6 +33,16 @@
             <div class="col-md-6 col-sm-12 col-lg-5 bg-light rounded mx-5 px-5 py-5">
                 <h2>Get's Started.</h2>
                 <form class="form-group"  action="actions/loginOp.php" method="post">
+                    <?php
+                        if(isset($_SESSION['error'])){
+                    ?>
+                        <div class="alert alert-warning text-danger">
+                            <?php print $_SESSION['error']; ?>
+                        </div>
+                    <?php
+                            unset($_SESSION['error']);
+                        }
+                    ?>
                     <div class="input-container row">
                         <label for="" class="label col-12">
                             Username

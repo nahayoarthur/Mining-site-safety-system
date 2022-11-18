@@ -10,7 +10,7 @@ $pwd=$_POST['password'];
             $_SESSION["uname"]=$name;
             header("location: ../index.php");
         }else{
-            // header("location:../login.php");
-            echo "fuck off";
+            $_SESSION['error'] = "Invalid Username or password";
+            header("location:../login.php");
         }  
 ?>
