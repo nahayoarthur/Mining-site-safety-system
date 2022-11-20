@@ -28,6 +28,20 @@ $newData = mysqli_fetch_array($resCount);
     <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <style> 
+        #myAlert {
+        width: 300px;
+        height: 100px;
+        border-radius: 8px;
+        background: red;
+        animation: mymove 1s infinite;
+        }
+
+        @keyframes mymove {
+        from {background-color: yellow;}
+        to {background-color: red;}
+        }
+    </style>
 </head>
 
 <body class="hold-transition light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -112,41 +126,17 @@ $newData = mysqli_fetch_array($resCount);
 
                     <!-- Main row -->
                     <div class="row">
-
                         <div class="col-md-12 d-flex justify-content-center">
-                            <!-- Info Boxes Style 2 -->
-                            <div class="info-box mb-3 bg-warning mx-1">
-                                <span class="info-box-icon"><i class="fas fa-tag"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Visitors</span>
-                                    <span class="info-box-number">5,200</span>
+                            <?php if($newData[0]>0){
+                            ?>
+                                <div id="myAlert" class="text-white d-flex justify-content-end align-items-end mx-2">
+                                    <a href="data.php" class="btn px-3 text-white">View(<?php print $newData[0] ?>)</a>
                                 </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                            <div class="info-box mb-3 bg-success  mx-1">
-                                <span class="info-box-icon"><i class="far fa-heart"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Clients</span>
-                                    <span class="info-box-number">92,050</span>
+                                <div id="myAlert" class="text-white d-flex justify-content-end align-items-end mx-2">
+                                    <a href="data.php" class="btn px-3 text-white">View(<?php print $newData[0] ?>)</a>
                                 </div>
-                                <!-- /.info-box-content -->
+                            <?php } ?>
                             </div>
-                            <!-- /.info-box -->
-                            <!-- /.info-box -->
-                            <div class="info-box mb-3 bg-info mx-1">
-                                <span class="info-box-icon"><i class="far fa-comment"></i></span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">Direct Messages</span>
-                                    <span class="info-box-number">163,921</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-
-                        </div>
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
