@@ -27,7 +27,7 @@
             <h4>Loading</h4>
         </div>
         <div class="row flex-column justify-content-center align-items-start bg-image"
-         style="height:100vh;background-image:url('assets/images/bg.jpg');
+         style="height:97vh;background-image:url('assets/images/bg.jpg');
             background-size:cover;
             background-position:fixed;">
             <div class="col-md-6 col-sm-12 col-lg-5 bg-light rounded mx-5 px-5 py-5">
