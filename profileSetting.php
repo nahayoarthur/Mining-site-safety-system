@@ -1,12 +1,11 @@
 <?php 
-
 session_start();
 if(!isset($_SESSION['uname'])){
     header("location:login.php");
 }else{
-    require_once "./actions/db.php";
+    require "./actions/db.php";
 $sql = "SELECT * FROM `site-1`";
-$sqlCount = "SELECT count(id) FROM `site-1` WHERE status = 1";
+$sqlCount = "SELECT count(id) FROM `site-1`";
 $resCount = mysqli_query($con,$sqlCount);
 $res = mysqli_query($con,$sql);
 $newData = mysqli_fetch_array($resCount);
@@ -92,11 +91,10 @@ $newData = mysqli_fetch_array($resCount);
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Add a new user</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                                 <li class="breadcrumb-item active">Profile</li>
                             </ol>
                         </div><!-- /.col -->
@@ -168,6 +166,9 @@ $newData = mysqli_fetch_array($resCount);
                 
             </div>
         </div>
+
+
+                
 
                         </div>
                         <!-- /.col -->

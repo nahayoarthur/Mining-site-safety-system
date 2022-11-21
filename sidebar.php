@@ -1,6 +1,6 @@
 <a href="index.php" class="brand-link">
-    <img src="./dist/img/pp.jpeg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light"><?php //print $_SESSION['user']['username'];?></span>
+    <img src="./dist/img/miner-with-mining-equipment-design-character-on-white-background-free-vector.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <span class="brand-text font-weight-light"><?php print $_SESSION['uname'];?></span>
 </a>
 
 <!-- Sidebar -->
@@ -12,7 +12,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
-                <a href="./index.php" class="nav-link active"><i class="fas fa-tachometer-alt"></i>
+                <a href="./index.php" class="nav-link"><i class="fas fa-tachometer-alt"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
