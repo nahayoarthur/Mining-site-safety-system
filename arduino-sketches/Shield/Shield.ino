@@ -71,7 +71,7 @@ void loop() {
   postData2 = postVariable2 + lpg_;
   postData3 = postVariable3 + smoke_;
   review = (postVariable+co_ + postVariable2 + lpg_ + postVariable3 +smoke_);
-if (co_ >= 80){
+if (co_ >0 || lpg_ >0 || smoke_ >0){
   if (client.connect(server, 80)) {
     client.println("POST /Mining-site-safety-system/API/apiScript.php HTTP/1.1");
     client.println("Host: 192.168.88.254");
@@ -98,16 +98,10 @@ if (co_ >= 80){
         Serial.print(c);
       }
     }
-
-delay(1000);
   }
 
   if (client.connected()) {
     client.stop();
   }
-
-  delay(6000);
 }
-
-  delay(3000);
 }

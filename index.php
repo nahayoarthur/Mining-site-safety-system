@@ -130,7 +130,7 @@ $newData = mysqli_fetch_array($resCount);
                             <?php if($newData[0]>0){
                             ?>
                                 <div id="myAlert" class="text-white d-flex justify-content-end align-items-end mx-2">
-                                    <a href="data.php" class="btn px-3 text-white">View(<?php print $newData[0] ?>)</a>
+                                    <a href="data.php" class="btn px-3 text-white">Alert in Site 1(<?php print $newData[0] ?>)</a>
                                 </div>
                                 <div id="myAlert" class="text-white d-flex justify-content-end align-items-end mx-2">
                                     <a href="data.php" class="btn px-3 text-white">View(<?php print $newData[0] ?>)</a>
