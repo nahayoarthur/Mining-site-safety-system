@@ -19,7 +19,7 @@ $newData = mysqli_fetch_array($resCount);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mining-site-safety-system</title>
-
+    <link rel="icon" type="image/x-icon" href="./dist/img/miner-with-mining-equipment-design-character-on-white-background-free-vector.jpg">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
