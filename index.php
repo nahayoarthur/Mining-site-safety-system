@@ -1,12 +1,11 @@
 <?php 
-
 session_start();
 if(!isset($_SESSION['uname'])){
     header("location:login.php");
 }else{
     require_once "./actions/db.php";
 $sql = "SELECT * FROM `site-1`";
-$sqlCount = "SELECT count(id) FROM `site-1` WHERE status = 1";
+$sqlCount = "SELECT count(id) FROM `site-1`";
 $resCount = mysqli_query($con,$sqlCount);
 $res = mysqli_query($con,$sql);
 $newData = mysqli_fetch_array($resCount);
@@ -18,7 +17,7 @@ $newData = mysqli_fetch_array($resCount);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mining-site-safety-system</title>
-
+    
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -130,7 +129,7 @@ $newData = mysqli_fetch_array($resCount);
                             <?php if($newData[0]>0){
                             ?>
                                 <div id="myAlert" class="text-white d-flex justify-content-end align-items-end mx-2">
-                                    <a href="data.php" class="btn px-3 text-white">View(<?php print $newData[0] ?>)</a>
+                                    <a href="data.php" class="btn px-3 text-white">Alert in Site 1(<?php print $newData[0] ?>)</a>
                                 </div>
                                 <div id="myAlert" class="text-white d-flex justify-content-end align-items-end mx-2">
                                     <a href="data.php" class="btn px-3 text-white">View(<?php print $newData[0] ?>)</a>

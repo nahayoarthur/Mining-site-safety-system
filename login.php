@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign In Page</title>
-
+    <link rel="icon" type="image/x-icon" href="./dist/img/miner-with-mining-equipment-design-character-on-white-background-free-vector.jpg">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -27,7 +27,7 @@
             <h4>Loading</h4>
         </div>
         <div class="row flex-column justify-content-center align-items-start bg-image"
-         style="height:100vh;background-image:url('assets/images/bg.jpg');
+         style="height:97vh;background-image:url('assets/images/bg.jpg');
             background-size:cover;
             background-position:fixed;">
             <div class="col-md-6 col-sm-12 col-lg-5 bg-light rounded mx-5 px-5 py-5">

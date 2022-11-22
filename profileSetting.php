@@ -1,15 +1,26 @@
 <?php 
-
 session_start();
 if(!isset($_SESSION['uname'])){
     header("location:login.php");
 }else{
-    require_once "./actions/db.php";
-$sql = "SELECT * FROM `site-1`";
-$sqlCount = "SELECT count(id) FROM `site-1` WHERE status = 1";
-$resCount = mysqli_query($con,$sqlCount);
-$res = mysqli_query($con,$sql);
-$newData = mysqli_fetch_array($resCount);
+    require "./actions/db.php";
+    $sql = "SELECT * FROM `users`";
+    $sqlCount = "SELECT count(id) FROM `site-1`";
+    $resCount = mysqli_query($con,$sqlCount);
+    $res = mysqli_query($con,$sql);
+    $newData = mysqli_fetch_array($resCount);
+
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+        echo $id;
+        $removeUsers = mysqli_query($con,"DELETE FROM `users` WHERE `users`.`id` = '$id'");
+        if ($removeUsers) {
+            header("Location: profileSetting.php"); 
+        } else {
+            echo "Problem in Query";
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +29,7 @@ $newData = mysqli_fetch_array($resCount);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mining-site-safety-system</title>
-
+    <link rel="icon" type="image/x-icon" href="./dist/img/miner-with-mining-equipment-design-character-on-white-background-free-vector.jpg">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -92,11 +103,10 @@ $newData = mysqli_fetch_array($resCount);
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Add a new user</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
                                 <li class="breadcrumb-item active">Profile</li>
                             </ol>
                         </div><!-- /.col -->
@@ -167,6 +177,37 @@ $newData = mysqli_fetch_array($resCount);
                 </form>
                 
             </div>
+        </div>
+
+<form
+                        <div class="bg-light rounded px-5 mx-5 py-5">
+            <table class="table table-striped table-hover">
+                <h2>Users</h2>
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Username</th>
+                                            <th>Phone</th>
+                                            <th>Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                <?php $n = 1;
+                                while ($users = mysqli_fetch_array($res)){ 
+                                    ?>
+
+                                        <tr>
+                                            <td><?= $n++ ?></td>
+                                            <td><?= $users['name'] ?></td>
+                                            <td><?= $users['phone'] ?></td>
+                                            <td><div><a href="profileSetting.php?id=<?= $users['id'] ?>"><button type="submit" class="btn btn-danger px-5">
+                                                <i class="fas fa-trash"></i></button></a></div></td>
+                                        </tr>
+                                <?php } ?>  
+                                        
+                                    </tbody>
+            </table>
         </div>
 
                         </div>

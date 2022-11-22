@@ -6,7 +6,7 @@ if(!isset($_SESSION['uname'])){
 }else{
 require_once "./actions/db.php";
 $sql = "SELECT * FROM `site-1` ORDER BY `id` DESC";
-$sqlCount = "SELECT count(id) FROM `site-1` WHERE status = 1";
+$sqlCount = "SELECT count(id) FROM `site-1`";
 $resCount = mysqli_query($con,$sqlCount);
 $res = mysqli_query($con,$sql);
 $newData = mysqli_fetch_array($resCount);
@@ -19,7 +19,7 @@ $newData = mysqli_fetch_array($resCount);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mining-site-safety-system</title>
-
+    <link rel="icon" type="image/x-icon" href="./dist/img/miner-with-mining-equipment-design-character-on-white-background-free-vector.jpg">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -92,11 +92,11 @@ $newData = mysqli_fetch_array($resCount);
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Zone 1</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./index.php">Dashboard</a></li>
+                                <li class="breadcrumb-item">Zone 1</a></li>
                                 <li class="breadcrumb-item active">Data</li>
                             </ol>
                         </div><!-- /.col -->
