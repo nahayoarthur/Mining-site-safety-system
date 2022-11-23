@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2022 at 05:26 PM
--- Server version: 10.4.10-MariaDB
--- PHP Version: 7.3.12
+-- Generation Time: Nov 22, 2022 at 07:52 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -38,15 +37,19 @@ CREATE TABLE `site-1` (
   `methane` float NOT NULL,
   `carbon` float NOT NULL,
   `temp` float NOT NULL,
-  `time` datetime NOT NULL
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `site-1`
 --
 
-INSERT INTO `site-1` (`id`, `lpg`, `smoke`, `alcohol`, `propane`, `hydrogen`, `methane`, `carbon`, `temp`, `time`) VALUES
-(1, 1, 2, 0, 3, 3, 1, 9, 32, '2022-11-16 00:00:00');
+INSERT INTO `site-1` (`id`, `lpg`, `smoke`, `alcohol`, `propane`, `hydrogen`, `methane`, `carbon`, `temp`, `status`, `time`) VALUES
+(2, 54, 23, 23, 433, 234, 453, 345, 654, 0, '2022-11-09 00:19:11'),
+(3, 543, 543, 245, 5345, 54343, 5345, 2356, 654, 0, '2022-11-17 21:09:35'),
+(4, 2345, 654, 5564, 765, 4346, 6534, 65434, 34553, 0, '2022-11-17 21:09:35'),
+(5, 543, 543, 543, 5434, 534, 65, 654, 675, 0, '2022-11-18 14:14:06');
 
 -- --------------------------------------------------------
 
@@ -66,7 +69,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `phone`) VALUES
-(1, 'Admin', 'Admin@123', '0786983762');
+(1, 'Admin', 'Admin@123', '0786983762'),
+(4, 'mustapha', '123', '7453943348');
 
 --
 -- Indexes for dumped tables
@@ -83,7 +87,7 @@ ALTER TABLE `site-1`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `name` (`name`);
+  ADD UNIQUE KEY `phone` (`phone`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -93,13 +97,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `site-1`
 --
 ALTER TABLE `site-1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
