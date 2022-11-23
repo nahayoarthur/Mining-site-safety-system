@@ -69,7 +69,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `password`, `phone`) VALUES
-(1, 'admin', '123', '0788800088'),
+(1, 'Admin', 'Admin@123', '0786983762'),
 (4, 'mustapha', '123', '7453943348');
 
 --
