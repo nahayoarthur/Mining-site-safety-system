@@ -68,7 +68,9 @@ void setup() {
 
 void loop() {
 
-
+    co_ = 0;
+    smoke_ = 0;
+    lpg_ = 0;
    uint16_t data, data_2, data_3;
     uint8_t datalen = sizeof(data);
 
