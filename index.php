@@ -5,7 +5,7 @@ if(!isset($_SESSION['uname'])){
 }else{
     require_once "./actions/db.php";
 $sql = "SELECT * FROM `site-1`";
-$sqlCount = "SELECT count(id) FROM `site-1`";
+$sqlCount = "SELECT count(id) FROM `site-1` WHERE status=1";
 $resCount = mysqli_query($con,$sqlCount);
 $res = mysqli_query($con,$sql);
 $newData = mysqli_fetch_array($resCount);
