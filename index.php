@@ -15,6 +15,7 @@ $newData = mysqli_fetch_array($resCount);
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="refresh" content="10">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mining-site-safety-system</title>
     

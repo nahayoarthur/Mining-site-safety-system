@@ -27,6 +27,7 @@ if(!isset($_SESSION['uname'])){
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="refresh" content="30">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mining-site-safety-system</title>
     <link rel="icon" type="image/x-icon" href="./dist/img/miner-with-mining-equipment-design-character-on-white-background-free-vector.jpg">
