@@ -12,8 +12,8 @@ if(!isset($_SESSION['uname'])){
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        echo $id;
-        $removeUsers = mysqli_query($con,"DELETE FROM `users` WHERE `users`.`id` = '$id'");
+        //DELETE FROM `users` WHERE `users`.`id` = 4;
+        $removeUsers = mysqli_query($con,"DELETE FROM `users` WHERE `users`.`id` =".$id."");
         if ($removeUsers) {
             header("Location: profileSetting.php"); 
         } else {
@@ -27,7 +27,7 @@ if(!isset($_SESSION['uname'])){
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="30">
+    <meta http-equiv="refresh" content="60">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mining-site-safety-system</title>
     <link rel="icon" type="image/x-icon" href="./dist/img/miner-with-mining-equipment-design-character-on-white-background-free-vector.jpg">
@@ -180,10 +180,10 @@ if(!isset($_SESSION['uname'])){
             </div>
         </div>
 
-<form
+
                         <div class="bg-light rounded px-5 mx-5 py-5">
-            <table class="table table-striped table-hover">
-                <h2>Users</h2>
+                             <table class="table table-striped table-hover">
+                                        <h2>Users</h2>
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -208,8 +208,8 @@ if(!isset($_SESSION['uname'])){
                                 <?php } ?>  
                                         
                                     </tbody>
-            </table>
-        </div>
+                                             </table>
+                                 </div>
 
                         </div>
                         <!-- /.col -->
