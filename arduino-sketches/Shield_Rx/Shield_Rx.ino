@@ -4,7 +4,7 @@
 #include <RH_ASK.h>
 #include <SPI.h>
 
-RH_ASK driver (2000, 8, 9, 7);
+RH_ASK driver (2000, 7, 6, 5);
 
 //RH_ASK(uint16_t speed = 2000, uint8_t rxPin = 8, uint8_t txPin = 9, uint8_t pttPin = 7, bool pttInverted = false);
 
@@ -26,7 +26,10 @@ String postVariable2 = "& co=";
 String postData3;
 String postVariable3 = "& smoke=";
 
-float lpg_, co_, smoke_;
+String postData4;
+String postVariable4 = "& temp=";
+
+float lpg_, co_, smoke_,temp_;
 
 String review;
 
@@ -71,12 +74,15 @@ void loop() {
     co_ = 0;
     smoke_ = 0;
     lpg_ = 0;
-   uint16_t data, data_2, data_3;
+    temp_ = 0;
+   uint16_t data, data_2, data_3,data_4;
     uint8_t datalen = sizeof(data);
 
     uint8_t datalen_2 = sizeof(data_2);
 
     uint8_t datalen_3 = sizeof(data_3);
+
+    uint8_t datalen_4 = sizeof(data_4);
     
     if (driver.recv((uint8_t *)&data, &datalen))
     {
@@ -96,10 +102,17 @@ void loop() {
       smoke_ = data_3;       
     }
 
+                if (driver.recv((uint8_t *)&data_4, &datalen_4))
+    {     
+      Serial.println(data_4);  
+      temp_ = data_4;       
+    }
+
   postData = postVariable + co_;
   postData2 = postVariable2 + lpg_;
   postData3 = postVariable3 + smoke_;
-  review = (postVariable+co_ + postVariable2 + lpg_ + postVariable3 +smoke_);
+  postData4 = postVariable4 + temp_;
+  review = (postVariable+co_ + postVariable2 + lpg_ + postVariable3 +smoke_ + postVariable4 +temp_);
   if (co_ >0 || lpg_ >0 || smoke_ >0){
     if (client.connect(server, 80)) {
       client.println("POST /Mining-site-safety-system/API/apiScript.php HTTP/1.1");
@@ -121,6 +134,28 @@ void loop() {
       Serial.println("Data Sent");
       Serial.println(postData3);
 
+      while(client.connected()){
+        if(client.available()){
+          char c = client.read();
+          Serial.print(c);
+        }
+      }
+    }
+
+    if (temp_>0){
+      review = (postVariable+temp_);
+      client.println("POST /Mining-site-safety-system/API/apiScript.php HTTP/1.1");
+      client.println("Host: 192.168.88.254");
+      client.println("Content-Type: application/x-www-form-urlencoded");
+      client.print("Content-Length: ");
+      client.println(review.length());
+      client.println();
+      client.print(review);
+      delay (500);
+    
+      delay (500);
+      Serial.println("Data Sent");
+      Serial.println(postData4);
       while(client.connected()){
         if(client.available()){
           char c = client.read();
