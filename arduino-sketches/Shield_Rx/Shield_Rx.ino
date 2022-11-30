@@ -29,7 +29,10 @@ String postVariable3 = "& smoke=";
 String postData4;
 String postVariable4 = "& temp=";
 
-float lpg_, co_, smoke_,temp_;
+String postData5;
+String postVariable5 = "& panic=";
+
+float lpg_, co_, smoke_,temp_, panic_;
 
 String review;
 
@@ -75,47 +78,27 @@ void loop() {
     smoke_ = 0;
     lpg_ = 0;
     temp_ = 0;
-   uint16_t data[3];
+    panic_=0;
+   uint16_t data[5];
     uint8_t datalen = sizeof(data);
-
-//    uint8_t datalen_2 = sizeof(data_2);
-//
-//    uint8_t datalen_3 = sizeof(data_3);
-//
-//    uint8_t datalen_4 = sizeof(data_4);
     
     if (driver.recv((uint8_t *)&data, &datalen))
     {
-      Serial.println(data[2]);  
+      Serial.println("RF data recieved");  
       lpg_ = data[1] ;
       co_ = data[0];
-      smoke_ = data[2];       
+      smoke_ = data[2];
+      temp_ = data[3]; 
+      panic_ = data[4];     
     }
-
-//        if (driver.recv((uint8_t *)&data_2, &datalen_2))
-//    {    
-//      Serial.println(data_2); 
-//      co_ = data_2;        
-//    }
-//
-//            if (driver.recv((uint8_t *)&data_3, &datalen_3))
-//    {     
-//      Serial.println(data_3);  
-//      smoke_ = data_3;       
-//    }
-//
-//                if (driver.recv((uint8_t *)&data_4, &datalen_4))
-//    {     
-//      Serial.println(data_4);  
-//      temp_ = data_4;       
-//    }
 
   postData = postVariable + co_;
   postData2 = postVariable2 + lpg_;
   postData3 = postVariable3 + smoke_;
   postData4 = postVariable4 + temp_;
-  review = (postVariable+co_ + postVariable2 + lpg_ + postVariable3 +smoke_ + postVariable4 +temp_);
-  if (co_ >0 || lpg_ >0 || smoke_ >0){
+  postData5 = postVariable5 + panic_;
+  review = (postVariable+co_ + postVariable2 + lpg_ + postVariable3 +smoke_ + postVariable4 +temp_ + postVariable5 +panic_);
+  if (co_ >0 || lpg_ >0 || smoke_ >0 || temp_ > 0 || panic_ > 0){
     if (client.connect(server, 80)) {
       client.println("POST /Mining-site-safety-system/API/apiScript.php HTTP/1.1");
       client.println("Host: 192.168.88.254");
@@ -136,6 +119,12 @@ void loop() {
       Serial.println("Data Sent");
       Serial.println(postData3);
 
+      Serial.println("Data Sent");
+      Serial.println(postData4);
+
+      Serial.println("Data Sent");
+      Serial.println(postData5);
+
       while(client.connected()){
         if(client.available()){
           char c = client.read();
@@ -144,27 +133,6 @@ void loop() {
       }
     }
 
-    if (temp_>0){
-      review = (postVariable+temp_);
-      client.println("POST /Mining-site-safety-system/API/apiScript.php HTTP/1.1");
-      client.println("Host: 192.168.88.254");
-      client.println("Content-Type: application/x-www-form-urlencoded");
-      client.print("Content-Length: ");
-      client.println(review.length());
-      client.println();
-      client.print(review);
-      delay (500);
-    
-      delay (500);
-      Serial.println("Data Sent");
-      Serial.println(postData4);
-      while(client.connected()){
-        if(client.available()){
-          char c = client.read();
-          Serial.print(c);
-        }
-      }
-    }
 
     if (client.connected()) {
       client.stop();

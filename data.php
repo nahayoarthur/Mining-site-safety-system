@@ -120,10 +120,11 @@ $newData = mysqli_fetch_array($resCount);
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Ipg</th>
-                                        <th>Smoke</th>
-                                        <th>Carbon</th>
-                                        <th>Temp</th>
+                                        <th>Ipg level</th>
+                                        <th>Smoke level</th>
+                                        <th>Carbon level</th>
+                                        <th>Temperature °C</th>
+                                        <th>Other Emergencies</th>
                                         <th>Time</th>
                                     </tr>
                                 </thead>
@@ -139,6 +140,16 @@ $newData = mysqli_fetch_array($resCount);
                                         <td><?= $data['smoke'] ?></td>
                                         <td><?= $data['carbon'] ?></td>
                                         <td><?= $data['temp'] ?></td>
+                                        <?php 
+                                        $msg=$data['panic'];
+                                        if ($msg=="1")
+                                        {
+                                            $print="Alert!!";
+                                        }else{
+                                            $print="No alert";
+                                        }
+                                        ?>
+                                        <td><?=$print?></td>
                                         <td><?= $data['time'] ?></td>
                                     </tr>
                              <?php } ?>  
