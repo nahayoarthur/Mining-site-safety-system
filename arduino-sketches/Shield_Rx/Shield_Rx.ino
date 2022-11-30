@@ -75,38 +75,40 @@ void loop() {
     smoke_ = 0;
     lpg_ = 0;
     temp_ = 0;
-   uint16_t data, data_2, data_3,data_4;
+   uint16_t data[3];
     uint8_t datalen = sizeof(data);
 
-    uint8_t datalen_2 = sizeof(data_2);
-
-    uint8_t datalen_3 = sizeof(data_3);
-
-    uint8_t datalen_4 = sizeof(data_4);
+//    uint8_t datalen_2 = sizeof(data_2);
+//
+//    uint8_t datalen_3 = sizeof(data_3);
+//
+//    uint8_t datalen_4 = sizeof(data_4);
     
     if (driver.recv((uint8_t *)&data, &datalen))
     {
-      Serial.println(data);  
-      lpg_ = data ;       
+      Serial.println(data[2]);  
+      lpg_ = data[1] ;
+      co_ = data[0];
+      smoke_ = data[2];       
     }
 
-        if (driver.recv((uint8_t *)&data_2, &datalen_2))
-    {    
-      Serial.println(data_2); 
-      co_ = data_2;        
-    }
-
-            if (driver.recv((uint8_t *)&data_3, &datalen_3))
-    {     
-      Serial.println(data_3);  
-      smoke_ = data_3;       
-    }
-
-                if (driver.recv((uint8_t *)&data_4, &datalen_4))
-    {     
-      Serial.println(data_4);  
-      temp_ = data_4;       
-    }
+//        if (driver.recv((uint8_t *)&data_2, &datalen_2))
+//    {    
+//      Serial.println(data_2); 
+//      co_ = data_2;        
+//    }
+//
+//            if (driver.recv((uint8_t *)&data_3, &datalen_3))
+//    {     
+//      Serial.println(data_3);  
+//      smoke_ = data_3;       
+//    }
+//
+//                if (driver.recv((uint8_t *)&data_4, &datalen_4))
+//    {     
+//      Serial.println(data_4);  
+//      temp_ = data_4;       
+//    }
 
   postData = postVariable + co_;
   postData2 = postVariable2 + lpg_;

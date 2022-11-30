@@ -58,17 +58,13 @@ void loop(){
   Serial.print((smoke*100)/1000000);
   Serial.print(" %");
   Serial.print("\n");
-
-    uint16_t data = lpg;
-    uint16_t data_2 = co;
-    uint16_t data_3  = ((smoke*100)/1000000);
+    uint16_t data[3];
+    data[0] = lpg;
+    data[1] = co;
+    data[2]  = ((smoke*100)/1000000);
 
     
     driver.send((uint8_t *)&data, sizeof(data));
-
-    driver.send((uint8_t *)&data_2, sizeof(data_2));
-
-    driver.send((uint8_t *)&data_3, sizeof(data_3));
     
     driver.waitPacketSent();
   

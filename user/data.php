@@ -4,7 +4,7 @@ session_start();
 if(!isset($_SESSION['uname'])){
     header("location:login.php");
 }else{
-require_once "./actions/db.php";
+require_once "../actions/db.php";
 $sql = "SELECT * FROM `site-1` ORDER BY `id` DESC";
 $sqlCount = "SELECT count(id) FROM `site-1` WHERE status=1";
 $resCount = mysqli_query($con,$sqlCount);
@@ -20,16 +20,16 @@ $newData = mysqli_fetch_array($resCount);
     <meta http-equiv="refresh" content="30">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mining-site-safety-system</title>
-    <link rel="icon" type="image/x-icon" href="./dist/img/miner-with-mining-equipment-design-character-on-white-background-free-vector.jpg">
+    <link rel="icon" type="image/x-icon" href="../dist/img/miner-with-mining-equipment-design-character-on-white-background-free-vector.jpg">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition light-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -172,24 +172,24 @@ $newData = mysqli_fetch_array($resCount);
 
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- overlayScrollbars -->
-    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
+    <script src="../dist/js/adminlte.js"></script>
 
     <!-- PAGE PLUGINS -->
     <!-- jQuery Mapael -->
-    <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-    <script src="plugins/raphael/raphael.min.js"></script>
-    <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-    <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
+    <script src="../plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="../plugins/raphael/raphael.min.js"></script>
+    <script src="../plugins/jquery-mapael/jquery.mapael.min.js"></script>
+    <script src="../plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- ChartJS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
+    <script src="../plugins/chart.js/Chart.min.js"></script>
 
-    <script src="dist/js/pages/dashboard2.js"></script>
+    <script src="../dist/js/pages/dashboard2.js"></script>
 </body>
 
 </html>
