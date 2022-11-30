@@ -141,8 +141,7 @@ $newData = mysqli_fetch_array($resCount);
                                         <td><?= $data['carbon'] ?></td>
                                         <td><?= $data['temp'] ?></td>
                                         <?php 
-                                        $msg=$data['panic'];
-                                        if ($msg=="1")
+                                        if ($data['panic']=="1")
                                         {
                                             $print="Alert!!";
                                         }else{
